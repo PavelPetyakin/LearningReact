@@ -1,0 +1,11 @@
+@import "src/styleVars";
+
+.container {
+  font-size: 32px;
+  color: #00ffff;
+  transition: 0.3s;
+}
+
+.active {
+  color: #10d510;
+}

@@ -1,0 +1,14 @@
+{
+  "presets": ["@babel/preset-react"],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-class-properties",
+    "inline-react-svg",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ]
+  ]
+}

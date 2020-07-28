@@ -1,0 +1,38 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint-sonarts",
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-prettier",
+    "tslint-react-hooks"
+  ],
+  "jsRules": {
+    "no-unused-expression": true
+  },
+  "linterOptions": {
+    "exclude": ["./typings", ".git", "node-modules", "coverage", "src/**/stories.tsx"]
+  },
+  "rules": {
+    "quotemark": [true, "double"],
+    "member-access": [false],
+    "ordered-imports": [true],
+    "member-ordering": [false],
+    "interface-name": [true, "always-prefix"],
+    "arrow-parens": false,
+    "no-console": [true, "log"],
+    "prefer-const": [true, { "destructuring": "any" }],
+    "semicolon": false,
+    "no-submodule-imports": false,
+    "react-hooks-nesting": "error",
+    "no-implicit-dependencies": false,
+    "no-default-export": true,
+    "object-literal-sort-keys": false,
+    "react/destructuring-assignment": ["true", "always"],
+    "jsx-boolean-value": "always",
+    "jsx-self-close": true,
+    "jsx-wrap-multiline": true,
+    "no-consecutive-blank-lines": [true, 2],
+    "no-trailing-whitespace": true
+  }
+}

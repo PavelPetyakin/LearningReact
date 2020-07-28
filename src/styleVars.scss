@@ -1,0 +1,24 @@
+//colors
+$blueColor: #219cea;
+$redColor: #ff4242;
+$greenColor: #10d510;
+$darkGreyColor: #4c4c4c;
+$darkGreyColor: #404040;
+$lightGreyColor: #f8fafd;
+
+// border Style
+$borderWidth: 1px;
+$borderStyle: solid;
+$borderRadius: 15px;
+$borderColor: rgba(255, 255, 255, 0.8);
+
+// shadows
+$shadow: 2px 2px 5px -1px rgba(160, 160, 160, 0.7),
+        -2px -2px 5px -1px rgba(250, 250, 250, 0.7),
+        inset 2px 2px 5px -1px  rgba(255, 255, 255, 1);
+
+//fonts
+$fontRoboto: "Roboto Condensed", sans-serif;
+
+//transitions
+$transition: 0.3s;

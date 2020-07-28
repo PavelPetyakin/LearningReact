@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PATHS = {
   // api: path.resolve(__dirname, 'src/api'),
   // assets: path.resolve(__dirname, 'src/assets'),
-  // components: path.resolve(__dirname, 'src/components'),
+  components: path.resolve(__dirname, 'src/components'),
   // images: path.resolve(__dirname, 'src/assets/images'),
   // hooks: path.resolve(__dirname, 'src/hooks'),
   postSccConfig: path.join("./config/postcss.config.js"),
@@ -35,7 +35,7 @@ module.exports = {
         alias: {
             // api: PATHS.api,
             // assets: PATHS.assets,
-            // components: PATHS.components,
+            components: PATHS.components,
             // images: PATHS.images,
             // hooks: PATHS.hooks,
             reducers: PATHS.reducers,

@@ -1,0 +1,56 @@
+@import "src/styleVars";
+
+@mixin paint-element($fillColor) {
+
+  padding: 5px;
+  cursor: default;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    width: 52px;
+    height: 24px;
+    border-width: $borderWidth;
+    border-style: $borderStyle;
+    border-radius: $borderRadius;
+    padding: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: $fillColor;
+    border-color: rgba(lighten($fillColor, 20%), 0.8);
+    @if $fillColor == $lightGreyColor {
+      box-shadow: 1px 2px 4px -1px grayscale(rgba(darken($fillColor, 35%), 0.7)),
+      0 -1px 3px -1px grayscale(rgba(darken($fillColor, 2%), 0.7)),
+      inset 2px 2px 5px -1px rgba(lighten($fillColor, 25%), 1);
+    } @else {
+      box-shadow: 1px 2px 4px -1px rgba(darken($fillColor, 15%), 0.5),
+      0 -1px 3px -1px grayscale(rgba(lighten($fillColor, 25%), 0.7)),
+      inset 2px 2px 5px -1px rgba(lighten($fillColor, 25%), 1);
+    };
+    box-sizing: border-box;
+    transition: $transition;
+
+    .circle {
+      position: absolute;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      @if $fillColor == $lightGreyColor {
+        background-color: $blueColor;
+      } @else {
+        background-color: lighten($blueColor, 15%);
+      }
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+    .open {
+      left: 28px;
+    }
+  }
+}
+
+.LIGHT {@include paint-element($lightGreyColor)}
+.DARK {@include paint-element($darkGreyColor)}

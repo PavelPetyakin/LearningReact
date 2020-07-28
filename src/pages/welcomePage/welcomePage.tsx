@@ -9,8 +9,12 @@ export const WelcomePage = () => {
   const dispatch = useDispatch();
   const stateMenu = useSelector(getMenuIsOpen);
   const handleClick = () => {
-    dispatch(menuIsOpen(!stateMenu))
-  }
+    dispatch(menuIsOpen(!stateMenu));
+  };
 
-  return <div className={cx(s.container, { [s.active]: stateMenu })} onClick={handleClick}>Привет МИР</div>;
+  return (
+    <div className={cx(s.container, { [s.active]: stateMenu })} onClick={handleClick}>
+      Привет МИР
+    </div>
+  );
 };

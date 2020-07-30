@@ -14,7 +14,7 @@ export const WelcomePage = () => {
 
   return (
     <div className={cx(s.container, { [s.active]: stateMenu })} onClick={handleClick}>
-      Привет МИР
+      Привет, Артем!
     </div>
   );
 };

@@ -1,11 +1,58 @@
 @import "src/styleVars";
 
 .container {
-  font-size: 32px;
-  color: #00ffff;
-  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.active {
-  color: #10d510;
+.red,
+.orange,
+.yellow,
+.green,
+.skyblue,
+.blue,
+.purple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 80px;
+  height: 50px;
+
+}
+
+.green,
+.blue,
+.purple {
+  color: #b38181;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.skyblue {
+  background-color: skyblue;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.purple {
+  background-color: purple;
 }

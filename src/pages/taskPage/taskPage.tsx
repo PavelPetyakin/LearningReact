@@ -12,15 +12,40 @@ export function TaskPage() {
     dispatch(menuIsOpen(!stateMenu));
   };
 
+  const colors = <>
+    <div className={s.box}>
+      <div className={s.red}/>
+      <div className={s.colorName}>Red</div>
+    </div>
+    <div className={s.box}>
+      <div className={s.orange}/>
+      <div className={s.colorName}>Orange</div>
+    </div>
+    <div className={s.box}>
+      <div className={s.yellow}/>
+      <div className={s.colorName}>Yellow</div>
+    </div>
+    <div className={s.box}>
+      <div className={s.green}/>
+      <div className={s.colorName}>Green</div>
+    </div>
+    <div className={s.box}>
+      <div className={s.skyblue}/>
+      <div className={s.colorName}>Skyblue</div>
+    </div>
+    <div className={s.box}>
+      <div className={s.blue}/>
+      <div className={s.colorName}>Blue</div>
+    </div>
+    <div className={s.box}>
+      <div className={s.purple}/>
+      <div className={s.colorName}>Purple</div>
+    </div>
+  </>
+
   return (
     <div className={cx(s.container, { [s.active]: stateMenu })} onClick={handleClick}>
-      <div className={s.red}>Red</div>
-      <div className={s.orange}>Orange</div>
-      <div className={s.yellow}>Yellow</div>
-      <div className={s.green}>Green</div>
-      <div className={s.skyblue}>Skyblue</div>
-      <div className={s.blue}>Blue</div>
-      <div className={s.purple}>Purple</div>
+      {colors}
     </div>
   );
 }

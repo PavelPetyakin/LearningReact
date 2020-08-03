@@ -1,7 +1,31 @@
 import React from "react";
 import s from "./style.scss";
 
+const array = [
+  {
+    color: "red",
+    text: "Красный"
+  },
+  {
+    color: "orange",
+    text: "Оранжевый"
+  },
+  {
+    color: "yellow",
+    text: "Жёлтый"
+  },
+]
+
 export function WelcomePage() {
+  const rec2 = array.map((el,index) => {
+    return (
+      <div key={index} className={s.box}>
+        <div className={s[el.color]}/>
+        <div className={s.text}>{el.text}</div>
+      </div>
+    )
+  })
+
   const rec = (
     <>
       <div className={s.box}>
@@ -38,6 +62,7 @@ export function WelcomePage() {
   return (
     <div className={s.container}>
       {rec}
+      {rec2}
     </div>
   );
 }

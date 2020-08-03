@@ -5,6 +5,36 @@
   height: 100vh;
 }
 
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover {
+    .red,
+    .orange,
+    .yellow,
+    .green,
+    .skyblue,
+    .blue,
+    .purple {
+      transform: scale(1.2);
+    }
+    .colorName {
+      font-size: 26px;
+      text-decoration: underline;
+      color: black;
+    }
+  }
+}
+
+.colorName {
+  font-size: 24px;
+  color: darkgray;
+  transition: .3s;
+  user-select: none;
+}
+
 .red,
 .orange,
 .yellow,
@@ -18,12 +48,10 @@
   margin: 20px;
   width: 100px;
   height: 100px;
-}
-
-.green,
-.blue,
-.purple {
-  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 0.3s;
 }
 
 .red {

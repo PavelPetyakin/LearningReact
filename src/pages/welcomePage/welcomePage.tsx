@@ -1,68 +1,50 @@
 import React from "react";
+import { ColorRec, IColorRec } from "./components/colorRec";
 import s from "./style.scss";
 
-const array = [
+const array: Omit<IColorRec, "children" | "title" | "order">[] = [
   {
     color: "red",
-    text: "Красный"
+    text: "Красный",
   },
   {
     color: "orange",
-    text: "Оранжевый"
+    text: "Оранжевый",
   },
   {
     color: "yellow",
-    text: "Жёлтый"
+    text: "Жёлтый",
+  },
+  {
+    color: "green",
+    text: "Зелёный"
+  },
+  {
+    color: "skyblue",
+    text: "Голубой"
+  },
+  {
+    color: "blue",
+    text: "Синий"
   },
 ]
 
 export function WelcomePage() {
-  const rec2 = array.map((el,index) => {
+  const colorRecs = array.map((el,index) => {
     return (
-      <div key={index} className={s.box}>
-        <div className={s[el.color]}/>
-        <div className={s.text}>{el.text}</div>
-      </div>
+      <ColorRec
+        key={index}
+        text={el.text}
+        color={el.color}
+        order={index}
+        title={"hello1"}
+        children={<p>Hello</p>}
+      />
     )
   })
 
-  const rec = (
-    <>
-      <div className={s.box}>
-        <div className={s.red}/>
-        <div className={s.text}>Красный</div>
-      </div>
-      <div className={s.box}>
-        <div className={s.orange}/>
-        <div className={s.text}>Оранжевый</div>
-      </div>
-      <div className={s.box}>
-        <div className={s.yellow}/>
-        <div className={s.text}>Жёлтый</div>
-      </div>
-      <div className={s.box}>
-        <div className={s.green}/>
-        <div className={s.text}>Зелёный</div>
-      </div>
-      <div className={s.box}>
-        <div className={s.skyblue}/>
-        <div className={s.text}>Голубой</div>
-      </div>
-      <div className={s.box}>
-        <div className={s.blue}/>
-        <div className={s.text}>Синий</div>
-      </div>
-      <div className={s.box}>
-        <div className={s.purple}/>
-        <div className={s.text}>Фиалетовый</div>
-      </div>
-    </>
-  )
-
   return (
-    <div className={s.container}>
-      {rec}
-      {rec2}
-    </div>
+    <div className={s.container} children={colorRecs}/>
   );
 }
+

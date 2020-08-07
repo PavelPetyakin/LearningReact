@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { ColorRec, IColorRec } from "./components/colorRec";
 import s from "./style.scss";
 
-const array: Omit<IColorRec, "children" | "title" | "order">[] = [
+const array: Pick<IColorRec, "text" | "color" >[] = [
   {
     color: "red",
     text: "Красный",
@@ -30,21 +30,38 @@ const array: Omit<IColorRec, "children" | "title" | "order">[] = [
 ]
 
 export function WelcomePage() {
+  const [activeColorState, setActiveColor] = useState<string>("");
+
+  const handle = (newColor: string) => () => {
+    if (newColor === activeColorState) {
+      setActiveColor("");
+    } else {
+      setActiveColor(newColor);
+    }
+  }
+
+  const renderText = activeColorState ?
+    <p>{activeColorState} &#128515;</p> :
+    <p>&#128564;</p>;
+
   const colorRecs = array.map((el,index) => {
     return (
       <ColorRec
         key={index}
         text={el.text}
         color={el.color}
-        order={index}
-        title={"hello1"}
-        children={<p>Hello</p>}
+        activeColor={activeColorState}
+        onClickColor={handle(el.text)}
       />
     )
   })
 
   return (
-    <div className={s.container} children={colorRecs}/>
+    <div className={s.container} >
+      <h1>Выбирети цвет</h1>
+      <div className={s.row}>{colorRecs}</div>
+      <div className={s.text}>{renderText}</div>
+    </div>
   );
 }
 

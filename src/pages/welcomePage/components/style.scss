@@ -1,0 +1,100 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+
+
+  &:hover {
+    .red,
+    .orange,
+    .yellow,
+    .green,
+    .skyblue,
+    .blue,
+    .purple {
+      transform: scale(1.1);
+    }
+    .text {
+      color:black;
+    }
+  }
+}
+
+.text {
+  font-size: 24px;
+  color: darkgray;
+  transition: 0.3s;
+}
+
+.red,
+.orange,
+.yellow,
+.green,
+.skyblue,
+.blue,
+.purple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: grey;
+  border-radius: 10px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.green,
+.blue,
+.purple {
+  color: white;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.skyblue {
+  background-color: skyblue;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.active {
+  .red,
+  .orange,
+  .yellow,
+  .green,
+  .skyblue,
+  .blue,
+  .purple {
+    transform: scale(1.1);
+  }
+  .text {
+    color: black;
+    text-decoration: underline;
+  }
+}

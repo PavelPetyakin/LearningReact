@@ -2,7 +2,7 @@ import React from "react";
 import { ColorRec, IColorRec } from "./components/colorRec";
 import s from "./style.scss";
 
-const array: Omit<IColorRec, "children" | "title" | "order">[] = [
+const array: Pick<IColorRec, "text" | "color" >[] = [
   {
     color: "red",
     text: "Красный",
@@ -36,15 +36,18 @@ export function WelcomePage() {
         key={index}
         text={el.text}
         color={el.color}
-        order={index}
-        title={"hello1"}
-        children={<p>Hello</p>}
+        activeColor={"red"}
+        onClick={() => undefined}
       />
     )
   })
 
   return (
-    <div className={s.container} children={colorRecs}/>
+    <div className={s.container} >
+      <h1>Выбирети цвет</h1>
+      <div className={s.row}>{colorRecs}</div>
+      <div className={s.text}>Синий</div>
+    </div>
   );
 }
 

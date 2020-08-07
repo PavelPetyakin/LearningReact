@@ -1,21 +1,22 @@
 import React from "react";
-import style from "./style.scss";
+import s from "./style.scss";
+import cx from "classnames";
 
 export interface IColorRec {
   text: string;
   color: string;
   activeColor: string;
-  onClick: () => void;
+  onClickColor: () => void;
 }
 
 export function ColorRec(props: IColorRec) {
-  const { text, color, activeColor, onClick } = props;
+  const { text, color, activeColor, onClickColor } = props;
   const isActive: boolean = activeColor === text;
 
   return (
-    <div className={style.box}>
-      <div className={style[color]}/>
-      <div className={style.text}>{text}</div>
+    <div className={cx(s.box,{[s.active]:isActive})}>
+      <div className={s[color]} onClick={onClickColor}/>
+      <div className={s.text}>{text}</div>
     </div>
   )
 }

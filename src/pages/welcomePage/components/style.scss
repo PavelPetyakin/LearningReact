@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  align-items: center;
 
 
   &:hover {
@@ -12,11 +13,10 @@
     .skyblue,
     .blue,
     .purple {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
     .text {
-      color:pink;
-      text-decoration: underline;
+      color:black;
     }
   }
 }
@@ -81,4 +81,20 @@
 
 .purple {
   background-color: purple;
+}
+
+.active {
+  .red,
+  .orange,
+  .yellow,
+  .green,
+  .skyblue,
+  .blue,
+  .purple {
+    transform: scale(1.1);
+  }
+  .text {
+    color: black;
+    text-decoration: underline;
+  }
 }

@@ -5,16 +5,15 @@ import cx from "classnames";
 export interface IColorBox {
   text: string;
   color: string;
-  activeColor: string;
+  activeColor: boolean;
   onClick: () => void;
 }
 
 export function ColorBox(props: IColorBox) {
   const { text, color, activeColor, onClick } = props;
-  const isActive = activeColor === text;
 
   return (
-    <div className={cx(s.box,{[s.active]: isActive})}>
+    <div className={cx(s.box,{[s.active]: activeColor})}>
       <div className={s[color]} onClick={onClick}/>
       <div className={s.colorName}>{color}</div>
     </div>

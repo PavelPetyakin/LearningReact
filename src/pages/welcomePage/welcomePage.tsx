@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { ColorRec, IColorRec } from "./components/colorRec";
+import { Button } from "./components/button/button"
+import { ColorRec, IColorRec } from "./components/colorRec/colorRec";
 import s from "./style.scss";
 
 const array: Pick<IColorRec, "text" | "color" >[] = [
@@ -30,18 +31,18 @@ const array: Pick<IColorRec, "text" | "color" >[] = [
 ]
 
 export function WelcomePage() {
-  const [activeColorState, setActiveColor] = useState<string>("");
+  const [activeColorState, setActiveColor] = useState<number | null>(null);
 
-  const handle = (newColor: string) => () => {
+  const handle = (newColor: number) => () => {
     if (newColor === activeColorState) {
-      setActiveColor("");
+      setActiveColor(null);
     } else {
       setActiveColor(newColor);
     }
   }
 
-  const renderText = activeColorState ?
-    <p>{activeColorState} &#128515;</p> :
+  const renderText = activeColorState !== null ?
+    <p>{array[activeColorState].text} &#128515;</p> :
     <p>&#128564;</p>;
 
   const colorRecs = array.map((el,index) => {
@@ -50,8 +51,8 @@ export function WelcomePage() {
         key={index}
         text={el.text}
         color={el.color}
-        activeColor={activeColorState}
-        onClickColor={handle(el.text)}
+        activeColor={activeColorState === index}
+        onClickColor={handle(index)}
       />
     )
   })
@@ -61,7 +62,32 @@ export function WelcomePage() {
       <h1>Выбирети цвет</h1>
       <div className={s.row}>{colorRecs}</div>
       <div className={s.text}>{renderText}</div>
+      <div className={s.buttons}>
+        <Button text={"prev color"} onClickButton={() => setActiveColor(getPrevColor(array, activeColorState))} colorBorder={array[getPrevColor(array, activeColorState)].color}/>
+        <Button text={"next color"} onClickButton={() => setActiveColor(getNextColor(array, activeColorState))} colorBorder={array[getNextColor(array, activeColorState)].color}/>
+      </div>
     </div>
   );
 }
 
+function getNextColor(colors, activeColor) {
+  let index: number;
+  if (activeColor !== null) {
+    index = activeColor === colors.length - 1 ? 0 : activeColor + 1;
+  } else {
+    index = 0;
+  }
+  return index;
+
+}
+
+function getPrevColor(colors, activeColor) {
+  let index: number;
+  if (activeColor !== null) {
+    index = activeColor === 0 ? colors.length - 1 : activeColor - 1;
+  } else {
+    index = colors.length - 1;
+  }
+  return index;
+
+}

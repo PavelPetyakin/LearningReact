@@ -1,93 +1,142 @@
+import { number } from "@storybook/addon-knobs";
 import React, { useState } from "react";
 import { Button } from "./components/button/button"
 import { ColorRec, IColorRec } from "./components/colorRec/colorRec";
 import s from "./style.scss";
+import { Avatar } from "assets";
+import cx from "classnames";
 
-const array: Pick<IColorRec, "text" | "color" >[] = [
+interface IBigData {
+  user: IUser;
+  balanceInfo: IBalanceInfo;
+}
+
+interface IBalanceInfo {
+  balance: number;
+  currencies: ICurrency[];
+}
+
+const data: ICurrency[] = [
   {
-    color: "red",
-    text: "Красный",
+    amount: 22,
+    type: "Crypto",
   },
   {
-    color: "orange",
-    text: "Оранжевый",
+    amount: 135,
+    type: "Dollars",
+  }
+];
+
+const bigData: IBigData = {
+  user: {
+    name: "Ivanka Trampovna",
+    avatarUrl: Avatar,
   },
-  {
-    color: "yellow",
-    text: "Жёлтый",
-  },
-  {
-    color: "green",
-    text: "Зелёный"
-  },
-  {
-    color: "skyblue",
-    text: "Голубой"
-  },
-  {
-    color: "blue",
-    text: "Синий"
-  },
-]
+  balanceInfo: {
+    balance: 162.00,
+    currencies: data,
+  }
+}
 
 export function WelcomePage() {
-  const [activeColorState, setActiveColor] = useState<number | null>(null);
+  const { user, balanceInfo } = bigData;
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const handle = () => setIsOpen(!isOpen);
 
-  const handle = (newColor: number) => () => {
-    if (newColor === activeColorState) {
-      setActiveColor(null);
-    } else {
-      setActiveColor(newColor);
-    }
-  }
+  return (
+    <div className={s.container}>
+      <div className={s.wrapper}>
+        <div className={s.background}>
+          <User avatarUrl={user.avatarUrl} name={user.name}/>
+          <Balance balance={balanceInfo.balance}/>
+          <Currencies currencies={balanceInfo.currencies}/>
+        </div>
+        <div className={cx(s.wrap, {[s.closed]: isOpen})}>
+          <div className={s.menu}>
+            <div className={s.line} onClick={handle}/>
+            <div className={s.recent}>Recent transactions</div>
+            <div className={s.recentList}>
+              <div className={s.recentElement}>
+                <div>
+                  <div className={s.recentTitle}>Grocery</div>
+                  <div className={s.recentDescription}>Treasure island mall</div>
+                </div>
+                <div>$12.00</div>
+              </div>
+              <div className={s.recentElement}>
+                <div>
+                  <div className={s.recentTitle}>Petrol</div>
+                  <div className={s.recentDescription}>Essar petrol pump</div>
+                </div>
+                <div>$09.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
-  const renderText = activeColorState !== null ?
-    <p>{array[activeColorState].text} &#128515;</p> :
-    <p>&#128564;</p>;
+interface IUser {
+  avatarUrl: string;
+  name: string;
+}
 
-  const colorRecs = array.map((el,index) => {
-    return (
-      <ColorRec
-        key={index}
-        text={el.text}
-        color={el.color}
-        activeColor={activeColorState === index}
-        onClickColor={handle(index)}
-      />
-    )
+function User(props: IUser) {
+  const { avatarUrl, name } = props;
+
+  return (
+    <div className={s.user}>
+      <img className={s.userAvatar} src={avatarUrl}/>
+      <div className={s.userName}>{name}</div>
+    </div>
+  )
+}
+
+interface IBalance {
+  balance: number;
+}
+
+function Balance(props: IBalance) {
+  const amount: string = "$" + props.balance + ".00";
+
+  return (
+    <div className={s.balance}>
+      <div className={s.balanceTitle}>Your total balance is</div>
+      <div className={s.balanceAmount}>{amount}</div>
+    </div>
+  )
+}
+
+interface ICurrency {
+  amount: number;
+  type: string;
+}
+
+function Currency(props: ICurrency) {
+  const { amount, type } = props;
+
+  return (
+    <div className={s.currency}>
+      <div className={s.currencyAmount}>{`$${amount}.00`}</div>
+      <div className={s.currencyType}>{type}</div>
+    </div>
+  )
+}
+
+interface ICurrencies {
+  currencies: ICurrency[];
+}
+
+function Currencies(props: ICurrencies) {
+  const currencies = props.currencies.map((elem, index) => {
+    return <Currency key={index} amount={elem.amount} type={elem.type}/>
   })
 
   return (
-    <div className={s.container} >
-      <h1>Выбирети цвет</h1>
-      <div className={s.row}>{colorRecs}</div>
-      <div className={s.text}>{renderText}</div>
-      <div className={s.buttons}>
-        <Button text={"prev color"} onClickButton={() => setActiveColor(getPrevColor(array, activeColorState))} colorBorder={array[getPrevColor(array, activeColorState)].color}/>
-        <Button text={"next color"} onClickButton={() => setActiveColor(getNextColor(array, activeColorState))} colorBorder={array[getNextColor(array, activeColorState)].color}/>
-      </div>
+    <div className={s.currencies}>
+      {currencies}
     </div>
-  );
-}
-
-function getNextColor(colors, activeColor) {
-  let index: number;
-  if (activeColor !== null) {
-    index = activeColor === colors.length - 1 ? 0 : activeColor + 1;
-  } else {
-    index = 0;
-  }
-  return index;
-
-}
-
-function getPrevColor(colors, activeColor) {
-  let index: number;
-  if (activeColor !== null) {
-    index = activeColor === 0 ? colors.length - 1 : activeColor - 1;
-  } else {
-    index = colors.length - 1;
-  }
-  return index;
-
+  )
 }

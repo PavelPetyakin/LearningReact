@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const PATHS = {
   // api: path.resolve(__dirname, 'src/api'),
-  // assets: path.resolve(__dirname, 'src/assets'),
+  assets: path.resolve(__dirname, 'src/assets'),
   components: path.resolve(__dirname, 'src/components'),
   // images: path.resolve(__dirname, 'src/assets/images'),
   // hooks: path.resolve(__dirname, 'src/hooks'),
@@ -34,7 +34,7 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".svg", ".png"],
         alias: {
             // api: PATHS.api,
-            // assets: PATHS.assets,
+            assets: PATHS.assets,
             components: PATHS.components,
             // images: PATHS.images,
             // hooks: PATHS.hooks,

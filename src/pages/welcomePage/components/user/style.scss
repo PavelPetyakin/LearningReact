@@ -1,0 +1,19 @@
+.user {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  &Avatar {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    border-radius: 15px;
+  }
+
+  &Name {
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    margin-left: 10px;
+  }
+}

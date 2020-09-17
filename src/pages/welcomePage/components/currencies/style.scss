@@ -1,0 +1,37 @@
+.currencies {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  color: white;
+
+  .currency {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 150px;
+    border-radius: 20px;
+    position: relative;
+
+    &Amount {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    &Type {
+      font-size: 12px;
+      position: absolute;
+      bottom: 15px;
+    }
+
+    &:first-child {
+      background-color: #ff4242;
+    }
+
+    &:last-child {
+      background-color: #219cea;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Avatar } from "assets";
+import { Avatar } from "assets/jpg";
 import React, { useState } from "react";
 import { Balance, Currencies, ICurrency, IElement, IUser, Menu, User } from "./components"
 import s from "./style.scss";

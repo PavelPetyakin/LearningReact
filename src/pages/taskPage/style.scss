@@ -14,6 +14,7 @@
     height: 300px;
     padding: 15px 15px 15px 25px;
 
+
     .button {
       display: flex;
       justify-content: flex-start;
@@ -39,14 +40,35 @@
     }
   }
 
+  .list {
+    color: #4c4c4c;
+    .frame {
+      display: flex;
+      justify-content: flex-start;
+      border: 1px solid gray;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+  }
+
   .title {
     display: flex;
     justify-content: space-between;
+    color: #b8b8b8;
+
+
+    .text {
+      font-size: 30px;
+      color: darkgray;
+    }
 
     .cross {
       width: 30px;
       height: 30px;
-
+      path {
+        fill: darkgray;
+      }
     }
   }
 

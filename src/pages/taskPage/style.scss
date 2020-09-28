@@ -5,14 +5,17 @@
   align-items: center;
   height: 100vh;
   background-color: lightgrey;
+  padding: 20px;
 
   .submetric {
     background-color: white;
     box-shadow: 0 5px 15px 0 grey;
     border-radius: 5px;
-    width: 1100px;
-    height: 300px;
+    max-width: 1100px;
+    min-height: 300px;
+    width: 100%;
     padding: 15px 15px 15px 25px;
+    margin: 20px;
 
 
     .button {
@@ -27,6 +30,7 @@
       background: white;
       white-space: nowrap;
       align-items: center;
+      margin: 15px;
 
       .add {
         width: 15px;
@@ -42,13 +46,21 @@
 
   .list {
     color: #4c4c4c;
+    max-height: 260px;
+    overflow-y: scroll;
     .frame {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
+      align-items: center;
       border: 1px solid gray;
       border-radius: 5px;
       padding: 15px;
       margin: 15px 0;
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 
@@ -62,15 +74,13 @@
       font-size: 30px;
       color: darkgray;
     }
-
-    .cross {
-      width: 30px;
-      height: 30px;
-      path {
-        fill: darkgray;
-      }
+  }
+  .cross {
+    width: 30px;
+    height: 30px;
+    path {
+      fill: darkgray;
     }
   }
-
 }
 

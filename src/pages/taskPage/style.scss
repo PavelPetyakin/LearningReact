@@ -17,31 +17,37 @@
     padding: 15px 15px 15px 25px;
     margin: 20px;
 
-
-    .button {
+    .buttons {
       display: flex;
-      justify-content: flex-start;
-      color: #278ae3;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #278ae3;
-      border-radius: 5px;
-      padding: 10px;
-      background: white;
-      white-space: nowrap;
-      align-items: center;
-      margin: 15px;
+      flex-direction: row;
+      justify-content: space-between;
 
-      .add {
-        width: 15px;
-        height: 15px;
-        margin-right: 5px;
+      .button {
+        display: flex;
+        color: #278ae3;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #278ae3;
+        border-radius: 5px;
+        padding: 10px;
+        background: white;
+        white-space: nowrap;
+        align-items: center;
+        margin-right: 15px;
 
-        path {
-          fill: #278ae3;
+
+        .add {
+          width: 15px;
+          height: 15px;
+          margin-right: 5px;
+
+          path {
+            fill: #278ae3;
+          }
         }
       }
     }
+
   }
 
   .list {
@@ -84,3 +90,12 @@
   }
 }
 
+.checkbox {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid grey;
+}
+.active {
+  background-color: grey;
+}

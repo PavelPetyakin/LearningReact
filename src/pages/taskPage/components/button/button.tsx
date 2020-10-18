@@ -11,6 +11,8 @@ export function Button(props: IButton) {
   const { name, onClickButton, buttonColor } = props;
 
   return (
-    <div className={s.button} style={{borderColor: buttonColor}} onClick={onClickButton}>{name}</div>
-  )
+    <div className={s.button} style={{ borderColor: buttonColor }} onClick={onClickButton}>
+      {name}
+    </div>
+  );
 }

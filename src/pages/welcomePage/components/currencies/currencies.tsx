@@ -8,12 +8,8 @@ interface ICurrencies {
 
 export function Currencies(props: ICurrencies) {
   const currencies = props.currencies.map((elem, index) => {
-    return <Currency key={index} amount={elem.amount} type={elem.type}/>
-  })
+    return <Currency key={index} amount={elem.amount} type={elem.type} />;
+  });
 
-  return (
-    <div className={s.currencies}>
-      {currencies}
-    </div>
-  )
+  return <div className={s.currencies}>{currencies}</div>;
 }

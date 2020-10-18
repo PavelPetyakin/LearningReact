@@ -11,8 +11,8 @@ export function User(props: IUser) {
 
   return (
     <div className={s.user}>
-      <img className={s.userAvatar} src={avatarUrl}/>
+      <img className={s.userAvatar} src={avatarUrl} />
       <div className={s.userName}>{name}</div>
     </div>
-  )
+  );
 }

@@ -6,9 +6,12 @@ interface IButton {
   name: string;
   onClick: () => void;
   size: ButtonSize;
+  color?: ButtonColor;
+  Icon?: SvgComponent;
 }
 
 type ButtonSize = Size.BIG | Size.MEDIUM | Size.LITTLE;
+type ButtonColor = Color.WHITE | Color.SKYBLUE | Color.LIGHTCORAL;
 
 export enum Size {
   BIG = "BIG",
@@ -16,11 +19,18 @@ export enum Size {
   LITTLE = "LITTLE",
 }
 
-export function Button(props:IButton) {
-  const { name, onClick, size } = props;
+export enum Color {
+  WHITE = "WHITE",
+  LIGHTCORAL = "LIGHTCORAL",
+  SKYBLUE = "SKYBLUE",
+}
+
+export function Button(props: IButton) {
+  const { name, onClick, size, color = Color.WHITE, Icon } = props;
   return (
-    <div className={cx(s.button,s[size])} onClick={onClick}>
+    <div className={cx(s.button, s[size], s[color])} onClick={onClick}>
+      {Icon && <Icon className={s.add} />}
       <span>{name}</span>
     </div>
-  )
+  );
 }

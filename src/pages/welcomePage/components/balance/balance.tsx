@@ -13,5 +13,5 @@ export function Balance(props: IBalance) {
       <div className={s.balanceTitle}>Your total balance is</div>
       <div className={s.balanceAmount}>{amount}</div>
     </div>
-  )
+  );
 }

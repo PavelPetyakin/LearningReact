@@ -9,7 +9,7 @@ const array = [
   {
     id: 2,
     name: "Green",
-  }
+  },
 ];
 
 export function TestSelectBox() {
@@ -17,8 +17,10 @@ export function TestSelectBox() {
   const handleClick = (val) => setState(val);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "200px" }}>
-      <SelectBox value={state} options={array} onClick={handleClick}/>
+    <div
+      style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "200px" }}
+    >
+      <SelectBox value={state} options={array} onClick={handleClick} />
     </div>
-  )
+  );
 }

@@ -1,0 +1,17 @@
+.input {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px lightgrey;
+  border-width: 1px;
+  border-style: solid;
+  border-color: grey;
+  padding: 10px;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: #219cea;
+    box-shadow: 2px 3px 7px 2px lightgrey;
+    outline: 0;
+  }
+}

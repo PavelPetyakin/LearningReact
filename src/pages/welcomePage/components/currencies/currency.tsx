@@ -14,5 +14,5 @@ export function Currency(props: ICurrency) {
       <div className={s.currencyAmount}>{`$${amount}.00`}</div>
       <div className={s.currencyType}>{type}</div>
     </div>
-  )
+  );
 }

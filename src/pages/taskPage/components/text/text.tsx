@@ -9,5 +9,11 @@ interface IText {
 export function Text(props: IText) {
   const { currentElement } = props;
 
-  return currentElement !== null ? <p className={s.text} style={{color: currentElement.color}}>{currentElement.text} &#128515;</p> : <p className={s.text}>&#128564;</p>;
+  return currentElement !== null ? (
+    <p className={s.text} style={{ color: currentElement.color }}>
+      {currentElement.text} &#128515;
+    </p>
+  ) : (
+    <p className={s.text}>&#128564;</p>
+  );
 }

@@ -5,9 +5,10 @@
   border: 1px solid grey;
   border-radius: 5px;
   width: 200px;
-  height: 20px;
+  height: 40px;
   box-shadow: 2px 2px 5px lightgrey;
   padding: 10px;
+  box-sizing: border-box;
 
   .triangle {
     width: 20px ;
@@ -37,7 +38,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  width: 220px;
+  width: 200px;
   max-height: 200px;
   margin-top: 5px;
   border: 1px solid grey;
@@ -45,6 +46,7 @@
   box-shadow: 2px 2px 5px lightgrey;
   padding: 10px 0;
   cursor: pointer;
+  background-color: white;
 
   .option {
     padding: 5px 15px;

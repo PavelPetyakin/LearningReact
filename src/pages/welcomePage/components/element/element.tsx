@@ -18,5 +18,5 @@ export function Element(props: IElement) {
       </div>
       <div>{`$${summary}.00`}</div>
     </div>
-  )
+  );
 }

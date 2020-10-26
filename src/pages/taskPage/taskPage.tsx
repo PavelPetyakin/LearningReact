@@ -2,6 +2,7 @@ import { Icon } from "assets/svg";
 import React, { useState } from "react";
 import { Button } from "../../components/buttons";
 import { Size } from "../../components/buttons/button/button";
+import { CircleButton} from "../../components/buttons/circleButton/circleButton";
 import { Input } from "../../components/input/input";
 import { IOption, SelectBox } from "../../components/selectBox/selectBox";
 import s from "./style.scss";
@@ -26,6 +27,7 @@ export function TaskPage() {
   const [data, updateData] = useState<string[]>(array);
   const [value, setValue] = useState<string>("");
   const [select, setSelect] = useState<string>("");
+  const [num, setNumber] = useState<number>(0)
 
   const handleAdd = () => {
     const arr = [...data];
@@ -59,7 +61,8 @@ export function TaskPage() {
         <div className={s.buttons}>
           <Button name={"Кнопка"} size={Size.MEDIUM} onClick={handleAdd} Icon={Icon.Add}/>
           <Input value={value} onChange={(v) => setValue(v)}/>
-          <SelectBox value={select} options={options} onClick={(v) => setSelect(v)}/>
+          <SelectBox value={select} options={options} handle={(id) => setSelect(id)}/>
+          <CircleButton name={num} onClick={(num) => setNumber(num)}/>
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@ export function TestSelectBox() {
     <div
       style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "200px" }}
     >
-      <SelectBox value={state} options={array} onClick={handleClick} />
+      <SelectBox value={state} options={array} handle={handleClick} />
     </div>
   );
 }

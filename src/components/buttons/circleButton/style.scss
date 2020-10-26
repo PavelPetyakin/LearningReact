@@ -1,0 +1,13 @@
+.circleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid grey;
+  border-radius: 50%;
+  &:hover {
+    border-color: #219cea;
+    box-shadow: 2px 3px 7px 2px lightgrey;
+  }
+}

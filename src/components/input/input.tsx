@@ -13,5 +13,7 @@ export function Input(props: IPropsInput) {
     onChange(event.currentTarget.value);
   };
 
-  return <input className={s.input} value={value} placeholder={placeholder} onChange={onChangeHandler} />;
+  return(
+  <input className={s.input} value={value} placeholder={placeholder} onChange={onChangeHandler} />
+)
 }

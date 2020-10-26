@@ -1,12 +1,12 @@
 import { Icon } from "assets/svg";
+import cx from "classnames";
 import React, { useState } from "react";
 import s from "./style.scss";
-import cx from "classnames";
 
 interface ISelectBox {
   value: string;
   options: IOption[];
-  onClick: (val: string) => void;
+  handle: (val: string) => void;
 }
 
 export interface IOption {
@@ -16,10 +16,10 @@ export interface IOption {
 
 export function SelectBox(props: ISelectBox) {
   const [showOptions, setShowOptions] = useState<boolean>(false);
-  const { value, options, onClick } = props;
+  const { value, options, handle } = props;
   const handleOpen = () => setShowOptions(true);
   const handleClick = (id) => () => {
-    onClick(id);
+    handle(id);
     setShowOptions(false);
   };
 
@@ -27,7 +27,7 @@ export function SelectBox(props: ISelectBox) {
     <div>
       <div className={s.box} onClick={handleOpen}>
         <div className={s.value}>{value}</div>
-        <Icon.Triangle className={cx(s.triangle, { [s.open]: showOptions })} />
+        <Icon.Jackdaw className={cx(s.jackdaw, { [s.open]: showOptions })} />
       </div>
       {showOptions && (
         <div className={s.options}>

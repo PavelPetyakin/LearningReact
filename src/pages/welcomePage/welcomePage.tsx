@@ -1,55 +1,11 @@
-import { Avatar } from "assets/jpg";
 import React, { useState } from "react";
-import { Balance, Currencies, ICurrency, IElement, IUser, Menu, User } from "./components";
+import { useSelector } from "react-redux";
+import { getUserBalanceState } from "../../reducers/main/selectors";
+import { Balance, Currencies, Menu, User } from "./components";
 import s from "./style.scss";
 
-interface IBigData {
-  user: IUser;
-  balanceInfo: IBalanceInfo;
-}
-
-interface IBalanceInfo {
-  balance: number;
-  currencies: ICurrency[];
-  recentOperations: IElement[];
-}
-
-const data: ICurrency[] = [
-  {
-    amount: 22,
-    type: "Crypto",
-  },
-  {
-    amount: 135,
-    type: "Dollars",
-  },
-];
-
-const bigData: IBigData = {
-  user: {
-    name: "Ivanka Trampovna",
-    avatarUrl: Avatar,
-  },
-  balanceInfo: {
-    balance: 162.0,
-    currencies: data,
-    recentOperations: [
-      {
-        title: "Grocery",
-        description: "Treasure island mall",
-        summary: 12,
-      },
-      {
-        title: "Petrol",
-        description: "Essar petrol pump",
-        summary: 9,
-      },
-    ],
-  },
-};
-
 export function WelcomePage() {
-  const { user, balanceInfo } = bigData;
+  const { user, balanceInfo } = useSelector(getUserBalanceState);
   const [isClosed, setIsClosed] = useState<boolean>(false);
   const handle = () => setIsClosed(!isClosed);
 

@@ -1,10 +1,12 @@
 import { Icon } from "assets/svg";
+import { Button, CircleButton, Switch } from "components/buttons";
 import React, { useState } from "react";
-import { Button } from "../../components/buttons";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Size } from "../../components/buttons/button/button";
-import { CircleButton} from "../../components/buttons/circleButton/circleButton";
-import { Input } from "../../components/input/input";
 import { IOption, SelectBox } from "../../components/selectBox/selectBox";
+import { changeDarkMode } from "../../reducers/main/actions";
+import { getDarkMode } from "../../reducers/main/selectors";
 import s from "./style.scss";
 
 const array: string[] = ["Вовлечённость", "Интерес к содержанию работы"];
@@ -24,8 +26,9 @@ const options: IOption[] = [
 ];
 
 export function TaskPage() {
+  const dispatch = useDispatch();
+  const darkMode = useSelector(getDarkMode);
   const [data, updateData] = useState<string[]>(array);
-  const [value, setValue] = useState<string>("");
   const [select, setSelect] = useState<string>("");
   const [num, setNumber] = useState<number>(0)
 
@@ -60,9 +63,9 @@ export function TaskPage() {
         </div>
         <div className={s.buttons}>
           <Button name={"Кнопка"} size={Size.MEDIUM} onClick={handleAdd} Icon={Icon.Add}/>
-          <Input value={value} onChange={(v) => setValue(v)}/>
+          <Switch isActive={darkMode} onClick={() => dispatch(changeDarkMode())}/>
           <SelectBox value={select} options={options} handle={(id) => setSelect(id)}/>
-          <CircleButton name={num} onClick={(num) => setNumber(num)}/>
+          <Link to={"/myfirstpage"} children={"myfirstpage"}/>
         </div>
       </div>
     </div>

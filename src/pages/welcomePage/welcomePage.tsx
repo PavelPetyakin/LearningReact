@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MainLayout } from "../../layouts/mainLayout";
 import s from "./style.scss";
 
 export function WelcomePage() {
@@ -6,10 +7,10 @@ export function WelcomePage() {
   const handle = () => setIsClosed(!isClosed);
 
   return (
-    <div className={s.container}>
+    <MainLayout>
       <div className={s.wrapper}>
         123
       </div>
-    </div>
+    </MainLayout>
   );
 }

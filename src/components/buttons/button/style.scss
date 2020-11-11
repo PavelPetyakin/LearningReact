@@ -1,0 +1,56 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 40px;
+  box-shadow: 2px 2px 5px lightgrey;
+  padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  &:hover {
+    border-color: #219cea;
+    box-shadow: 2px 3px 7px 2px lightgrey;
+  }
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.BIG {
+  width: 200px;
+}
+
+.MEDIUM {
+  width: 120px;
+}
+
+.LITTLE {
+  width: 80px;
+}
+
+.WHITE {
+  background-color: white;
+}
+
+.LIGHTCORAL {
+  background-color: lightcoral;
+}
+
+.SKYBLUE {
+  background-color: skyblue;
+}
+
+.add {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+
+  path {
+    fill: #278ae3;
+  }
+}

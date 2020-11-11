@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./basic.scss";
-import { MyFirstPage, MySecondPage, TaskPage, WelcomePage } from "./pages";
+import { WelcomePage } from "./pages";
 import { store } from "./store";
 
 ReactDOM.render(
@@ -12,9 +12,6 @@ ReactDOM.render(
     <ErrorBoundary>
       <Router>
         <Switch>
-          <Route path="/task" component={TaskPage} />
-          <Route path="/myfirstpage" component={MyFirstPage} />
-          <Route path="/mysecondpage" component={MySecondPage}/>
           <Route path="/" component={WelcomePage} />
         </Switch>
       </Router>

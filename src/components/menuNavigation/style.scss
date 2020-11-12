@@ -1,0 +1,12 @@
+.element {
+  text-decoration: none;
+  color: #404040;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &Active {
+    color: #fffb00;
+  }
+}

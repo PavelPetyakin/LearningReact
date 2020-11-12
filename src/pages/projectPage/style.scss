@@ -1,0 +1,26 @@
+@import "src/styleVars";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 100vh;
+  position: relative;
+
+  .wrapper {
+    position: relative;
+
+    .background {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      height: 650px;
+      background-image: url("~assets/jpg/background.jpg");
+      background-size: cover;
+      border-radius: 30px;
+      padding: 25px;
+      box-shadow: 0 20px 35px 5px grey;
+    }
+  }
+}

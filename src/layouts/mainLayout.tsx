@@ -1,15 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { directions } from "../routing/directions";
 import s from "./style.scss";
 
 const menu = [
   {
     title: "главная",
-    link: "/",
+    link: directions.home,
   },
   {
-    title: "проект",
-    link: "/project",
+    title: "проекты",
+    link: directions.projects,
   },
 ]
 
@@ -19,7 +20,14 @@ export function MainLayout(props) {
       <div className={s.menu}>
         {menu.map((el, i) => {
           return(
-            <NavLink key={i} className={s.link} to={el.link} activeClassName={s.active} children={el.title} />
+            <NavLink
+              key={i}
+              to={el.link}
+              className={s.link}
+              activeClassName={s.active}
+              exact={true}
+              children={el.title}
+            />
           )
         })}
       </div>

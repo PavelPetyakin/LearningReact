@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ProjectPage, WelcomePage } from "../pages";
+import { Customer } from "../pages/customer/customer";
 import { directions } from "./directions";
 
 export function AppRouter() {
   return (
     <Router>
       <Switch>
-        <Route path={directions.projects} component={ProjectPage} />
-        <Route path={directions.home} component={WelcomePage} />
+        <Route path={directions.admin} render={() => <div>Admin</div>} />
+        <Route path={directions.customer} component={Customer} />
       </Switch>
     </Router>
   )

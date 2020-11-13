@@ -1,16 +1,10 @@
-import React, { useState } from "react";
-import { MainLayout } from "../../layouts/mainLayout";
+import React from "react";
 import s from "./style.scss";
 
 export function WelcomePage() {
-  const [isClosed, setIsClosed] = useState<boolean>(false);
-  const handle = () => setIsClosed(!isClosed);
-
   return (
-    <MainLayout>
-      <div className={s.wrapper}>
-        welcome
-      </div>
-    </MainLayout>
+    <div className={s.wrapper}>
+      welcome page!!
+    </div>
   );
 }

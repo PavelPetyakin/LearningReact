@@ -1,3 +1,3 @@
-import Avatar from "./avatar.jpg";
+import Home_1 from "./home_1.jpg";
 
-export { Avatar };
+export { Home_1 };

@@ -1,8 +1,8 @@
-import React from "react";
-import { RouteComponentProps, Switch, Route } from "react-router-dom";
-import { MainLayout } from "../../layouts/mainLayout";
 import { ProjectPage, WelcomePage } from "pages";
+import React from "react";
+import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import { CustomerDirections } from "routing/directions";
+import { MainLayout } from "../../layouts/mainLayout";
 
 export function Customer(props: RouteComponentProps<{page: string}>) {
   const { page } = props.match.params;

@@ -1,29 +1,19 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { ReactElement } from "react";
+import { MenuNavigation } from "../components";
+import { menuList } from "routing/directions";
 import s from "./style.scss";
 
-const menu = [
-  {
-    title: "главная",
-    link: "/",
-  },
-  {
-    title: "проект",
-    link: "/project",
-  },
-]
+interface IMainLayout {
+  children: ReactElement;
+}
 
-export function MainLayout(props) {
-  return(
-    <div className={s.container}>
-      <div className={s.menu}>
-        {menu.map((el, i) => {
-          return(
-            <NavLink key={i} className={s.link} to={el.link} activeClassName={s.active} children={el.title} />
-          )
-        })}
-      </div>
+export function MainLayout(props: IMainLayout) {
+  return (
+    <section className={s.container}>
+      <header className={s.header}>
+        <MenuNavigation className={s.test} list={menuList} />
+      </header>
       {props.children}
-    </div>
+    </section>
   )
 }

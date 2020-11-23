@@ -1,9 +1,12 @@
 .element {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   color: #404040;
 
+
   &:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 40px;
   }
 
   &Active {

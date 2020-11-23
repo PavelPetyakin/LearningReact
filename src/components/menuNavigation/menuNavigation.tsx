@@ -1,7 +1,8 @@
+import cx from "classnames";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import s from "./style.scss";
 import { IMenuElement } from "routing/directions";
+import s from "./style.scss";
 
 interface IMenuNavigation {
   list: IMenuElement[];
@@ -15,7 +16,7 @@ export function MenuNavigation(props: IMenuNavigation) {
       <NavLink
         key={index}
         to={element.link}
-        className={s.element}
+        className={cx(s.element,className)}
         activeClassName={s.elementActive}
         exact={true}
         children={element.title}

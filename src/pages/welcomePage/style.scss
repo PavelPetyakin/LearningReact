@@ -10,36 +10,67 @@
     background-image: url("~assets/jpg/home_1.jpg");
     background-size: cover;
     background-position: center center;
+    margin-top: 100px;
 
-    &Info {
-      width: 400px;
-      color: white;
-      margin: auto 100px;
-      vertical-align: middle;
+    &Wrap {
+      display: flex;
+      align-items: center;
       height: 100%;
 
-      .news {
-        font-size: 14px;
-        font-weight: bold;
-        padding: 2px 10px;
-        border-radius: 3px;
-        background-color: white;
-        mix-blend-mode: screen;
-        color: black;
-        width: 150px;
-        text-align: center;
-      }
-      .size {
-        font-size: 60px;
-        font-weight: bold;
+      &Info {
+        width: 400px;
+        color: white;
+        margin-left: 200px;
 
-        sup {
-          font-size: 0.5em;
+        .news {
+          font-size: 14px;
+          font-weight: bold;
+          padding: 2px 10px;
+          border-radius: 3px;
+          background-color: white;
+          mix-blend-mode: screen;
+          color: black;
+          width: 150px;
+          text-align: center;
         }
-      }
-      .desc {
-        font-size: 30px;
-        font-weight: bold;
+        .size {
+          font-size: 60px;
+          font-weight: bold;
+          padding-top: 20px;
+
+          sup {
+            font-size: 0.5em;
+          }
+        }
+        .desc {
+          font-size: 30px;
+          font-weight: bold;
+          padding-bottom: 20px;
+        }
+        .button {
+          display: inline-flex;
+          column-gap: 0.4em;
+          align-items: center;
+          border: none;
+          padding: 0.45em 0.7em 0.5em;
+          border-radius: 10px;
+          background-color: white;
+          color: black;
+          line-height: 1;
+          font-size: 25px;
+          font-family: inherit;
+          cursor: pointer;
+          outline: 0 !important;
+          &:hover {
+            opacity: .7;
+          }
+          &Icon {
+            fill: currentColor;
+            width: 0.8em;
+            height: 0.8em;
+          }
+
+        }
       }
     }
   }

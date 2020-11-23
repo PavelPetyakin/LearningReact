@@ -28,9 +28,9 @@ export enum Color {
 export function Button(props: IButton) {
   const { name, onClick, size, color = Color.WHITE, Icon } = props;
   return (
-    <div className={cx(s.button, s[size], s[color])} onClick={onClick}>
+    <button className={cx(s.button, s[size], s[color])} onClick={onClick}>
       {Icon && <Icon className={s.add} />}
-      <span>{name}</span>
-    </div>
+      {name}
+    </button>
   );
 }
